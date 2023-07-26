@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="{{url_for('static', filename='favicon/favicon.ico')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/style.css')}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登録</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{url_for('mypage')}}">図書管理システム</a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="{{url_for('list')}}">一覧</a>
+                        <a class="nav-link" href="{{url_for('register_book')}}">登録</a>
+                        <a class="nav-link" href="{{url_for('delete_book')}}">削除</a>
+                        <a class="nav-link" href="{{url_for('search_book')}}">検索</a>
+                        <a class="nav-link" href="{{url_for('update_book')}}">更新</a>
+                        <a class="nav-link" href="{{url_for('logout')}}">ログアウト</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <h1>登録</h1>
+        <form action="{{url_for('register_book_exe')}}" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">タイトル：</label>
+                <input type="text" name="title" id="title" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">著者：</label>
+                <input type="text" name="author" id="author" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="syupan" class="form-label">出版社：</label>
+                <input type="text" name="syupan" id="syupan" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="isbn" class="form-label">ISBN：</label>
+                <input type="text" name="isbn" id="isbn" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">登録</button>
+        </form>
+    </div>
+
+</body>
+</html>

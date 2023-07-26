@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="{{url_for('static', filename='favicon/favicon.ico')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/style.css')}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>検索</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{url_for('mypage')}}">図書管理システム</a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="{{url_for('list')}}">一覧</a>
+                        <a class="nav-link" href="{{url_for('register_book')}}">登録</a>
+                        <a class="nav-link" href="{{url_for('delete_book')}}">削除</a>
+                        <a class="nav-link" href="{{url_for('search_book')}}">検索</a>
+                        <a class="nav-link" href="{{url_for('update_book')}}">更新</a>
+                        <a class="nav-link" href="{{url_for('logout')}}">ログアウト</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <h1>検索</h1>
+        <form action="{{url_for('search_book_exe')}}" method="post" class="row g-3">
+            <div class="col-md-6">
+                <label for="title" class="form-label">タイトル：</label>
+                <input type="text" name="title" id="title" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary">検索</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
